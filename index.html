@@ -1,53 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111">
 <title>PaperMaker | Instant paper animation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="nav">
-  <a class="logo" href="#"><span class="logo-mark">P</span><span>PaperMaker</span></a>
-  <div class="nav-right"><span class="online"><i></i> Works in your browser</span><a class="github" href="https://github.com/anuragrajpandey/EliteStocksPaperMaker">GitHub</a></div>
-</header>
-
+<header class="nav"><a class="logo" href="#"><span class="logo-mark">P</span><span>PaperMaker</span></a><div class="nav-right"><span class="online"><i></i> Works in your browser</span><a class="github" href="https://github.com/anuragrajpandey/EliteStocksPaperMaker">GitHub</a></div></header>
 <main>
-  <section class="hero">
-    <div class="hero-copy">
-      <span class="kicker">INSTANT PAPER ANIMATION</span>
-      <h1>Turn one phrase<br>into <em>paper motion.</em></h1>
-      <p>Type your main text. Paper, typography, texture and rapid scene changes are generated automatically.</p>
-      <form id="generator" class="generator">
-        <input id="mainText" autocomplete="off" maxlength="42" placeholder="Enter your text…" value="MAKE IT HAPPEN">
-        <button type="submit"><span>Generate</span><b>↗</b></button>
-      </form>
-      <div class="checks"><span>✓ No setup</span><span>✓ No uploads</span><span>✓ 9:16 ready</span></div>
-    </div>
-
-    <div class="showcase">
-      <div class="paper-stack" id="paperStack">
-        <div class="floating-note note-left">CUT · MOVE · REPEAT</div>
-        <div class="floating-note note-right">01 / 18</div>
-        <canvas id="canvas" width="720" height="1280"></canvas>
-        <div class="paper-shadow"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="result" id="result">
-    <div class="result-head">
-      <div><span class="kicker">YOUR EDIT</span><h2>Ready in a blink.</h2></div>
-      <div class="result-actions"><span id="duration">0.00s</span><button id="playBtn" class="ghost">Preview</button><button id="exportBtn" class="export">Export video</button></div>
-    </div>
-    <div class="timeline"><div id="progress"></div></div>
-  </section>
+<section class="hero">
+<div class="hero-copy">
+<span class="kicker">INSTANT PAPER ANIMATION</span>
+<h1>Turn one phrase<br>into <em>paper motion.</em></h1>
+<p>Type your main text. Paper, editorial layouts, highlights and rapid scene changes are generated automatically.</p>
+<form id="generator" class="generator"><input id="mainText" autocomplete="off" maxlength="42" placeholder="Enter your text…" value="MAKE IT HAPPEN"><button type="submit"><span>Generate</span><b>↗</b></button></form>
+<div class="length-control"><div><span>VIDEO LENGTH</span><strong id="lengthValue">6.0s</strong></div><input id="length" type="range" min="2" max="12" step=".5" value="6"></div>
+<div class="checks"><span>✓ No setup</span><span>✓ No uploads</span><span>✓ 9:16 ready</span></div>
+</div>
+<div class="showcase"><div class="paper-stack" id="paperStack"><div class="floating-note note-left">CUT · MOVE · REPEAT</div><div class="floating-note note-right" id="sceneBadge">01 / 57</div><canvas id="canvas" width="720" height="1280"></canvas><div class="paper-shadow"></div></div></div>
+</section>
+<section class="result" id="result">
+<div class="result-head"><div><span class="kicker">VIDEO PREVIEW</span><h2>Your edit, before export.</h2></div><div class="result-actions"><span id="duration">6.0s</span><button id="playBtn" class="ghost">Preview</button><button id="exportBtn" class="export" disabled>Export video</button></div></div>
+<div class="video-shell"><video id="videoPreview" controls playsinline></video><div id="videoEmpty">Generate your edit to create the video preview.</div></div>
+<div class="timeline"><div id="progress"></div></div>
+</section>
 </main>
-
 <footer>PaperMaker · automatic paper typography generator</footer>
 <script src="app.js"></script>
 </body>
