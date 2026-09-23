@@ -1,80 +1,54 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0f0f0f" />
-  <title>PaperMaker — EliteStocks</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111">
+<title>PaperMaker | Instant paper animation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand"><span class="brand-dot"></span><span>PaperMaker</span></div>
-    <div class="top-actions"><span class="status"><i></i> Browser render</span><button id="exportBtn" class="primary">Export video</button></div>
-  </header>
+<header class="nav">
+  <a class="logo" href="#"><span class="logo-mark">P</span><span>PaperMaker</span></a>
+  <div class="nav-right"><span class="online"><i></i> Works in your browser</span><a class="github" href="https://github.com/anuragrajpandey/EliteStocksPaperMaker">GitHub</a></div>
+</header>
 
-  <main class="app">
-    <section class="stage-panel">
-      <div class="stage-wrap">
-        <canvas id="canvas" width="1080" height="1920" aria-label="PaperMaker preview"></canvas>
-        <div class="stage-hint">9:16 · live preview</div>
-      </div>
-      <div class="transport">
-        <button id="playBtn" class="transport-btn" aria-label="Play">▶</button>
-        <div class="scrub"><div id="progress" class="scrub-fill"></div></div>
-        <span id="timeLabel">0.00s</span>
-      </div>
-    </section>
-
-    <aside class="editor">
-      <div class="section">
-        <label class="eyebrow">Persistent text</label>
-        <input id="mainText" class="text-input main-input" value="ELITE" maxlength="32" />
-        <div class="row">
-          <label>Size <input id="mainSize" type="range" min="70" max="220" value="138"></label>
-          <label>Tracking <input id="tracking" type="range" min="-2" max="18" value="4"></label>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-head"><label class="eyebrow">Rapid scenes</label><button id="addScene" class="small-btn">+ Add</button></div>
-        <div id="scenes" class="scenes"></div>
-      </div>
-
-      <div class="section">
-        <label class="eyebrow">Speed</label>
-        <div class="speed-line"><input id="speed" type="range" min="60" max="500" value="140"><strong id="speedValue">140 ms</strong></div>
-        <div class="presets"><button data-speed="80">80ms</button><button data-speed="120">120ms</button><button data-speed="180">180ms</button><button data-speed="260">260ms</button></div>
-      </div>
-
-      <div class="section">
-        <label class="eyebrow">Style</label>
-        <div class="style-grid">
-          <button class="style active" data-style="editorial">Editorial</button>
-          <button class="style" data-style="notebook">Notebook</button>
-          <button class="style" data-style="newsprint">Newsprint</button>
-          <button class="style" data-style="warm">Warm paper</button>
-        </div>
-      </div>
-
-      <div class="footer-note">Everything in this MVP runs locally in your browser. Your images stay on your device.</div>
-    </aside>
-  </main>
-
-  <template id="sceneTemplate">
-    <div class="scene">
-      <div class="scene-index"></div>
-      <div class="scene-body">
-        <input class="scene-text" maxlength="42" />
-        <div class="scene-meta"><span class="duration"></span><input class="scene-file" type="file" accept="image/*"></div>
-      </div>
-      <button class="delete-scene" aria-label="Delete scene">×</button>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="kicker">INSTANT PAPER ANIMATION</span>
+      <h1>Turn one phrase<br>into <em>paper motion.</em></h1>
+      <p>Type your main text. Paper, typography, texture and rapid scene changes are generated automatically.</p>
+      <form id="generator" class="generator">
+        <input id="mainText" autocomplete="off" maxlength="42" placeholder="Enter your text…" value="MAKE IT HAPPEN">
+        <button type="submit"><span>Generate</span><b>↗</b></button>
+      </form>
+      <div class="checks"><span>✓ No setup</span><span>✓ No uploads</span><span>✓ 9:16 ready</span></div>
     </div>
-  </template>
 
-  <script src="./app.js"></script>
+    <div class="showcase">
+      <div class="paper-stack" id="paperStack">
+        <div class="floating-note note-left">CUT · MOVE · REPEAT</div>
+        <div class="floating-note note-right">01 / 18</div>
+        <canvas id="canvas" width="720" height="1280"></canvas>
+        <div class="paper-shadow"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="result" id="result">
+    <div class="result-head">
+      <div><span class="kicker">YOUR EDIT</span><h2>Ready in a blink.</h2></div>
+      <div class="result-actions"><span id="duration">0.00s</span><button id="playBtn" class="ghost">Preview</button><button id="exportBtn" class="export">Export video</button></div>
+    </div>
+    <div class="timeline"><div id="progress"></div></div>
+  </section>
+</main>
+
+<footer>PaperMaker · automatic paper typography generator</footer>
+<script src="app.js"></script>
 </body>
 </html>
